@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+.clear{
+    clear: both;
+}
+
+h1{
+    font-size: 2.8rem;
+}
+
+h2{
+    font-size: 3.6rem;
+    padding: 5rem 0rem;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 2.4rem;
+}
+
+h4{
+    font-size: 2.8rem;
+}
+
+button {
+    background-color: #c5c5c5;
+    padding: 10px;
+    vertical-align: top;
+    box-shadow: 2px 1px 2px grey;
+    margin: 4px 10px 4px 10px;
+    font-size: 1.8rem;
+}
+
+button:active {
+    box-shadow: 0 0 0 black;
+    margin: 6px 10px 2px 10px;
+}
+
+nav{
+    background-color:#C5C5C5 ;
+    padding: 3rem;
+}
+
+
+nav h1{
+    float: left;
+}
+
+nav ul{
+    float: right;
+    list-style: none;
+}
+
+nav li{
+    float: left;
+    margin: 0rem 3rem;
+    padding: 3.5rem;
+}
+
+.main-section{
+    background-image: url("hospitalblur.jpg");
+    height: 80rem;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding-top: 15rem;
+    text-shadow: 3px 3px 3px white;
+}
+
+.main-section button{
+    margin-top: 4rem;
+    padding: 1rem 4rem;
+    background: #C5C5C5;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+
+.form-section{
+    text-align: center;
+}
+
+form input,form label,form textarea{
+    display: block;
+    font-size: 2.4rem;
+}
+
+form input, form textarea{
+    margin: 2rem auto;
+    width: 50%;
+}
+
+form button{
+    margin-bottom: 10rem;
+    padding: 1rem 4rem;
+    background: #C5C5C5;
+    border: none;
+    color: black;
+    cursor: pointer;
+    width: 50%;
+}
+
+a 
+{
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+  
+a::before,
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+a::before {
+    background-color: #54b3d6;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #54b3d6;
+}
+  
+a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+
+a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+  
+a span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+  
+a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+
+.about-section ul{
+    list-style: none;
+}
+
+.about-section li{
+    float: left;
+    margin: 0rem 7rem;
+    padding: 6rem;
+    font-size: 2.4rem;
+    
+}
+
+#about{
+    text-align: center;
+}
+
+.about-section{
+    background-color: #C5C5C5;
+} 
+
+#covid{
+    float: right;
+}
+
+#image-selector{
+    background-color: #c5c5c5;
+    padding: 10px;
+    vertical-align: top;
+    box-shadow: 2px 1px 2px grey;
+    margin: 4px 10px 4px 10px;
+    font-size: 1.8rem;
+}

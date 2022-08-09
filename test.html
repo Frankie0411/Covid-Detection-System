@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img id="logo" src="loogo.png" width="250" height="90"></a>
+
+        <h1 id="covid">Testing Covid now</h1>
+    </nav>
+    <input id="image-selector" type="file">
+    <button id="predict-button">Predict</button>
+    <p><h1>Prediction:</h1><span id="result"></span></p>
+    <p><h1>Probability:</h1> <span id="probability"></span></p>
+    <img id="selected-image" width="400" src="/">
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+    let base64Image;
+    $("#image-selector").change(function() {
+        let reader = new FileReader();
+        reader.onload = function(e){
+            let dataURL = reader.result;
+            $('#selected-image').attr("src",dataURL);
+            base64Image = dataURL.replace(/^data:image\/(png|jpg|jpeg);base64,/,"")
+            console.log(base64Image);
+        }
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+        $("#result").text("");
+        $("#probability").text("");
+    }
+    );
+
+    $("#predict-button").click(function(){
+        let message = {
+            image: base64Image
+        }
+        console.log(message);
+        $.post("http://127.0.0.1:5000/predict",JSON.stringify(message),function(response){
+            $("#result").test(response.prediction.result);
+            $("#probability").text(response.prediction.accuracy.tofixed(2));
+            console.log(response);
+        });
+
+        
+    });
+
+</script>
+
+</html>
